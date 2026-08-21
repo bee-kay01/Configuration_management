@@ -11,8 +11,7 @@ sudo apt upgrade -y
 
 # create a folder to mount to efs
 #================================
-mkdir -p /home/ubuntu/webserver
-
+mkdir webserver
 # installing EFS client dependencies
 #====================================
 sudo apt -y install nfs-common stunnel4 git binutils
