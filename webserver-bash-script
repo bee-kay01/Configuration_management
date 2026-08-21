@@ -3,7 +3,7 @@ set -e
 
 # chaning the hostname
 #=====================
-sudo hostnamectl set-hostname WebServer-`hostname -I`
+sudo hostnamectl set-hostname WebServer
 
 # Updating the server
 #=====================
@@ -38,9 +38,16 @@ EOF
 #==================
 sudo mount -a
 
-# make nginx the owner of /var/www/html 
-#========================================
-sudo chown -R www-data:www-data /var/www/html
+# Fix permissions
+====================
+sudo chown -R www-data:www-data /home/ubuntu/webserver
+sudo chmod -R 777 /home/ubuntu/webserver
+
+# Allow Nginx to access the parent directories
+================================================
+sudo chmod o+x /home
+sudo chmod o+x /home/ubuntu
+
 
 # DAtadog Connection
 #======================
